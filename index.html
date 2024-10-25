@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kokteiliai Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocktail Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #cocktail-list {
+      margin-top: 20px;
+    }
+    .cocktail-item {
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .cocktail-item img {
+      height: 80px;
+      width: 80px;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque porro error distinctio soluta tenetur quas provident perferendis laudantium 
-        aliquid? At quae magnam adipisci hic iusto atque nulla iure, cum dolores.</h4>
-    
+  <h1>Cocktail Search</h1>
+  <input type="text" id="cocktail-input" placeholder="Enter cocktail name">
+  <button onclick="searchCocktail()">Search</button>
+  <div id="cocktail-list"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
