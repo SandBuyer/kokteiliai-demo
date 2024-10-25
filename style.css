@@ -1,13 +1,21 @@
+#logo{
+    width: 5%;
+}
+
+
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-image: url(https://img.freepik.com/premium-photo/minimalistic-white-fabric-background-tulle_217468-29113.jpg?w=1060);
+    background-size: cover;
   }
   #cocktail-list {
     margin-top: 20px;
   }
   .cocktail-item {
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #272525;
     padding: 10px;
     display: flex;
     align-items: center;
