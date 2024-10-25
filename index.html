@@ -28,8 +28,20 @@
 </head>
 <body>
   <h1>Cocktail Search</h1>
-  <input type="text" id="cocktail-input" placeholder="Enter cocktail name">
-  <button onclick="searchCocktail()">Search</button>
+  
+  <!-- Input for searches -->
+  <input type="text" id="cocktail-input" placeholder="Enter name, first letter, or ingredient">
+  <button onclick="basicSearch()">Search</button>
+  
+  <!-- Filter by Alcoholic or Non-Alcoholic -->
+  <select id="alcoholic-filter" onchange="filterByAlcohol()">
+    <option value="">Select Alcoholic/Non-Alcoholic</option>
+    <option value="Alcoholic">Alcoholic</option>
+    <option value="Non_Alcoholic">Non-Alcoholic</option>
+  </select>
+  
+  <!-- Random Cocktail Lookup -->
+  <button onclick="lookupRandom()">Random Cocktail</button>
   <div id="cocktail-list"></div>
 
   <script src="script.js"></script>
