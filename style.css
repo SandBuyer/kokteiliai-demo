@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #cocktail-list {
+    margin-top: 20px;
+  }
+  .cocktail-item {
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .cocktail-item img {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+  }
