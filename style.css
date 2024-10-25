@@ -1,4 +1,4 @@
-#logo{
+/* #logo{
     width: 5%;
 }
 
@@ -24,4 +24,106 @@ body {
     height: 80px;
     width: 80px;
     margin-right: 10px;
+  } */
+
+/* Base styling */
+
+#logo{
+    width: 5%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-image: url(https://img.freepik.com/premium-photo/minimalistic-white-fabric-background-tulle_217468-29113.jpg?w=1060);
+    background-size: cover;
+  }
+
+  h1 {
+    color: #e90ee9;
+    font-weight: bold;
+  }
+
+  /* Center and constrain the width of the results container */
+  #results-container {
+    margin: 20px auto;
+    width: 60%;
+    max-width: 800px;
+  }
+
+  /* Input, Select, and Button styling */
+  #cocktail-input, #alcoholic-filter, button {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  #cocktail-input, #alcoholic-filter {
+    width: 70%;
+    max-width: 400px;
+  }
+
+  button {
+    background-color: #a200ff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #52044b;
+  }
+
+  /* Cocktail list item styling */
+  #cocktail-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cocktail-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+
+  .cocktail-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .cocktail-item img {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .cocktail-info {
+    text-align: left;
+  }
+
+  .cocktail-info h3 {
+    margin: 0;
+    color: #007bff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .cocktail-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
   }
