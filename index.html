@@ -15,11 +15,11 @@
 
     <div id="results-container">
         <input type="text" id="cocktail-input" placeholder="Search for a cocktail by name, first letter, or ingredient">
-        <select id="alcoholic-filter" onchange="filterByAlcohol()">
-            <option value="">Select Alcoholic/Non-Alcoholic</option>
-            <option value="Alcoholic">Alcoholic</option>
-            <option value="Non_Alcoholic">Non-Alcoholic</option>
-        </select>
+        <select id="alcoholic-filter">
+          <option value="">All</option>
+          <option value="Alcoholic">Alcoholic</option>
+          <option value="Non_Alcoholic">Non-Alcoholic</option>
+      </select>
         <button onclick="basicSearch()">Search</button>
         <button onclick="lookupRandom()">Random Cocktail</button>
     </div>

@@ -24,33 +24,48 @@ async function filterByAlcohol() {
 }
 
 async function lookupRandom() {
-  await fetchCocktails(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+  const alcoholicFilter = document.getElementById("alcoholic-filter").value;
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+  await fetchCocktails(url, alcoholicFilter);
 }
 
 async function fetchCocktails(url, alcoholicFilter = "") {
   const cocktailList = document.getElementById("cocktail-list");
-  cocktailList.innerHTML = "";
+  cocktailList.innerHTML = ""; // Clear previous results
 
   try {
-      const response = await fetch(url);
-      const data = await response.json();
+    let apiUrl = url;
 
-      if (data.drinks) {
-          let cocktails = data.drinks;
+    // Adjust the API URL based on the alcoholic filter
+    if (alcoholicFilter === "Alcoholic") {
+      apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
+    } else if (alcoholicFilter === "Non_Alcoholic") {
+      apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+    }
 
-          if (alcoholicFilter) {
-              cocktails = cocktails.filter(cocktail => cocktail.strAlcoholic === alcoholicFilter.replace("_", " "));
-          }
+    const response = await fetch(apiUrl); // Fetch the API using the adjusted URL
+    const data = await response.json(); // Parse the response as JSON
 
-          cocktails.forEach(cocktail => {
-              displayCocktail(cocktail);
-          });
-      } else {
-          cocktailList.innerHTML = "<p>No cocktails found.</p>";
+    // Check if the API returned any drinks
+    if (data.drinks) {
+      let cocktails = data.drinks;
+
+      // If the filter is not empty, only show drinks with matching "strAlcoholic" value
+      if (alcoholicFilter) {
+        cocktails = cocktails.filter(cocktail => cocktail.strAlcoholic === alcoholicFilter.replace("_", " "));
       }
+
+      // Display each cocktail using the displayCocktail function
+      cocktails.forEach(cocktail => {
+        displayCocktail(cocktail); // Assuming this function handles displaying the cocktail info
+      });
+    } else {
+      // If no cocktails were found, display a message
+      cocktailList.innerHTML = "<p>No cocktails found.</p>";
+    }
   } catch (error) {
-      console.error("Error fetching data:", error);
-      cocktailList.innerHTML = "<p>Failed to fetch data. Please try again later.</p>";
+    console.error("Error fetching data:", error);
+    cocktailList.innerHTML = "<p>Failed to fetch data. Please try again later.</p>";
   }
 }
 
