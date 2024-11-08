@@ -1,3 +1,49 @@
+// Age Gate Logic
+window.onload = function () {
+  const ageGateModal = document.getElementById('age-gate');
+  const ageYesButton = document.getElementById('age-yes');
+  const ageNoButton = document.getElementById('age-no');
+
+  // Check if the user has already passed the age gate in the current session
+  const isAgeVerified = localStorage.getItem('ageVerified');
+
+  if (!isAgeVerified) {
+    ageGateModal.style.display = 'flex'; // Show the age gate if not verified
+  } else {
+    enableWebsite(); // If already verified, enable the website features
+  }
+
+  // Handle "Yes" button click
+  ageYesButton.onclick = function () {
+    localStorage.setItem('ageVerified', 'true'); // Store in localStorage so user won't be asked again
+    ageGateModal.style.display = 'none'; // Close the modal
+    enableWebsite(); // Enable the website features
+  };
+
+  // Handle "No" button click
+  ageNoButton.onclick = function () {
+    alert("Sorry, you must be 18 or older to access this site.");
+    window.location.href = "https://www.google.com"; // Redirect to another page (e.g., Google)
+  };
+};
+
+// Function to enable all website features
+function enableWebsite() {
+  // Enable the main page's features (buttons, search bar, etc.)
+  document.getElementById('cocktail-input').disabled = false;
+  document.getElementById('alcoholic-filter').disabled = false;
+  document.querySelectorAll('button').forEach(button => {
+    button.disabled = false;
+  });
+}
+
+// Disable the main page's features initially if under 18
+document.getElementById('cocktail-input').disabled = true;
+document.getElementById('alcoholic-filter').disabled = true;
+document.querySelectorAll('button').forEach(button => {
+  button.disabled = true;
+});
+
 async function basicSearch() {
   const input = document.getElementById("cocktail-input").value.trim();
   const alcoholicFilter = document.getElementById("alcoholic-filter").value;
