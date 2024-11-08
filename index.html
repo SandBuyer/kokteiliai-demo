@@ -7,29 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-    <img id= logo src="https://clipart-library.com/images_k/martini-glass-transparent-background/martini-glass-transparent-background-21.png" alt="coctail">
-    <h1>Cocktail Search</h1>
-  
-  <!-- Input for searches -->
-  <input type="text" id="cocktail-input" placeholder="Enter name, first letter, or ingredient">
-  <button onclick="basicSearch()">Search</button>
-  
-  <!-- Filter by Alcoholic or Non-Alcoholic -->
-  <select id="alcoholic-filter" onchange="filterByAlcohol()">
-    <option value="">Select Alcoholic/Non-Alcoholic</option>
-    <option value="Alcoholic">Alcoholic</option>
-    <option value="Non_Alcoholic">Non-Alcoholic</option>
-  </select>
-  
-  <!-- Random Cocktail Lookup -->
-  <button onclick="lookupRandom()">Random Cocktail</button>
+  <body>
+    <header>
+      <img id= logo src="https://clipart-library.com/images_k/martini-glass-transparent-background/martini-glass-transparent-background-21.png" alt="coctail">
+        <h1>Cocktail Search</h1>
+    </header>
 
-  <!-- Centered results container with modern style -->
-  <div id="results-container">
+    <div id="results-container">
+        <input type="text" id="cocktail-input" placeholder="Search for a cocktail by name, first letter, or ingredient">
+        <select id="alcoholic-filter" onchange="filterByAlcohol()">
+            <option value="">Select Alcoholic/Non-Alcoholic</option>
+            <option value="Alcoholic">Alcoholic</option>
+            <option value="Non_Alcoholic">Non-Alcoholic</option>
+        </select>
+        <button onclick="basicSearch()">Search</button>
+        <button onclick="lookupRandom()">Random Cocktail</button>
+    </div>
+
     <div id="cocktail-list"></div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Modal for displaying cocktail details -->
+    <div id="cocktail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Cocktail Image">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <ul id="modal-ingredients"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
